@@ -1,3 +1,4 @@
+import styled from "styled-components"
 import "../../styles/ViewButton.scss"
 
 type Props = {
@@ -5,10 +6,15 @@ type Props = {
   onClick: () => void
 }
 
+const Button = styled.button`
+  background-color: ${(props) => props.theme.colors.secondaryBackground};
+  color: ${(props) => props.theme.colors.primaryTextColor};
+`
+
 export const ViewButton = ({ view, onClick }: Props) => {
   return (
-    <button className="view-button" onClick={() => onClick()}>
+    <Button className="view-button" onClick={() => onClick()}>
       <strong>{view}</strong>
-    </button>
+    </Button>
   )
 }
