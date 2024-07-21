@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+
+    &__text {
+        color: green;
+        margin-right: 25px;
+        margin-left: 15px;
+    }
+}

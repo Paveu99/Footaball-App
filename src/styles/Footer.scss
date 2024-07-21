@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 -12px 24px rgba(0, 0, 0, 0.3);
+
+  &__text {
+    color: green;
+    margin-left: 15px;
+  }
+}
