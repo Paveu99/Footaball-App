@@ -1,0 +1,179 @@
+{
+  "players": [
+    {
+      "id": "aaaa",
+      "player_name": "Marc-Andre",
+      "player_surname": "ter Stegen",
+      "teamId": "1111"
+    },
+    {
+      "id": "aaab",
+      "player_name": "Ronald",
+      "player_surname": "Araujo",
+      "teamId": "1111"
+    },
+    {
+      "id": "aaac",
+      "player_name": "Pedri",
+      "player_surname": "Gonzalez",
+      "teamId": "1111"
+    },
+    {
+      "id": "aaad",
+      "player_name": "Pablo",
+      "player_surname": "Gavirra",
+      "teamId": "1111"
+    },
+    {
+      "id": "aaae",
+      "player_name": "Robert",
+      "player_surname": "Lewandowski",
+      "teamId": "1111"
+    },
+    {
+      "id": "aaaf",
+      "player_name": "Thibaut",
+      "player_surname": "Courtios",
+      "teamId": "2222"
+    },
+    {
+      "id": "aaag",
+      "player_name": "Antonio",
+      "player_surname": "Rudiger",
+      "teamId": "2222"
+    },
+    {
+      "id": "aaah",
+      "player_name": "Toni",
+      "player_surname": "Kroos",
+      "teamId": "2222"
+    },
+    {
+      "id": "aaai",
+      "player_name": "Luka",
+      "player_surname": "Modric",
+      "teamId": "2222"
+    },
+    {
+      "id": "aaaj",
+      "player_name": "Jude",
+      "player_surname": "Bellingham",
+      "teamId": "2222"
+    },
+    {
+      "id": "aaak",
+      "player_name": "Mike",
+      "player_surname": "Maignan",
+      "teamId": "3333"
+    },
+    {
+      "id": "aaal",
+      "player_name": "Fikayo",
+      "player_surname": "Tomori",
+      "teamId": "3333"
+    },
+    {
+      "id": "aaam",
+      "player_name": "Theo",
+      "player_surname": "Hernandez",
+      "teamId": "3333"
+    },
+    {
+      "id": "aaan",
+      "player_name": "Christian",
+      "player_surname": "Pulisic",
+      "teamId": "3333"
+    },
+    {
+      "id": "aaao",
+      "player_name": "Rafael",
+      "player_surname": "Leao",
+      "teamId": "3333"
+    },
+    {
+      "id": "aaap",
+      "player_name": "David",
+      "player_surname": "de Gea",
+      "teamId": ""
+    },
+    {
+      "id": "aaar",
+      "player_name": "Adrien",
+      "player_surname": "Rabiot",
+      "teamId": ""
+    },
+    {
+      "id": "aaas",
+      "player_name": "Raphael",
+      "player_surname": "Varane",
+      "teamId": ""
+    },
+    {
+      "id": "aaat",
+      "player_name": "Anthony",
+      "player_surname": "Martial",
+      "teamId": ""
+    }
+  ],
+  "teams": [
+    {
+      "id": "1111",
+      "team_name": "FC Barcelona",
+      "team_year": 1899,
+      "team_location": "Barcelona",
+      "total_goals": 7
+    },
+    {
+      "id": "2222",
+      "team_name": "Real Madrid",
+      "team_year": 1902,
+      "team_location": "Madrid",
+      "total_goals": 3
+    },
+    {
+      "id": "3333",
+      "team_name": "AC Milan",
+      "team_year": 1899,
+      "team_location": "Milano",
+      "total_goals": 3
+    }
+  ],
+  "games": [
+    {
+      "id": "zzz1",
+      "game_date": "2024-03-15",
+      "game_name": "La Liga - match day 31",
+      "game_place": "Spotify Camp Nou",
+      "game_time": 90,
+      "game_result": "3-2",
+      "team_a": "1111",
+      "team_b": "2222",
+      "team_a_goals": 3,
+      "team_b_goals": 2
+    },
+    {
+      "id": "zzz2",
+      "game_date": "2023-12-10",
+      "game_name": "Champions League Semi-Final",
+      "game_place": "Santiago Bernabeu",
+      "game_time": 95,
+      "game_result": "1-1",
+      "team_a": "2222",
+      "team_b": "3333",
+      "team_a_goals": 1,
+      "team_b_goals": 1
+    },
+    {
+      "id": "zzz3",
+      "game_date": "2023-08-10",
+      "game_name": "Champions League Group Stage",
+      "game_place": "San Siro",
+      "game_time": 92,
+      "game_result": "2-4",
+      "team_a": "3333",
+      "team_b": "1111",
+      "team_a_goals": 2,
+      "team_b_goals": 4
+    }
+  ]
+}
