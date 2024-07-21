@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import "../styles/Base.scss"
+import { Headline } from "../components/headline/Headline"
 
 const TeamsView = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBackground};
@@ -9,5 +10,9 @@ const TeamsView = styled.div`
 export const TeamsBase = () => {
   console.log("teams")
 
-  return <TeamsView className="base">Teams</TeamsView>
+  return (
+    <TeamsView className="base">
+      <Headline text="Teams" />
+    </TeamsView>
+  )
 }
