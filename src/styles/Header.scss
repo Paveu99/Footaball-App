@@ -6,9 +6,22 @@
     width: 100%;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 
-    &__text {
-        color: green;
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
         margin-right: 25px;
         margin-left: 15px;
+    }
+}
+
+.theme-toggle-button {
+    border: none;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
     }
 }
