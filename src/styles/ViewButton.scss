@@ -1,0 +1,17 @@
+.view-button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: white;
+    color: green;
+    transition: all 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: black;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
