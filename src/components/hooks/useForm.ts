@@ -4,7 +4,12 @@ type FormChangeEvent = ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 >
 
-type UseFormReturn<T> = [T, (e: FormChangeEvent) => void, () => void]
+type UseFormReturn<T> = [
+  T,
+  (e: FormChangeEvent) => void,
+  () => void,
+  (newState: T) => void,
+]
 
 export const useForm = <T>(initialValues: T): UseFormReturn<T> => {
   const [formState, setFormState] = useState<T>(initialValues)
@@ -12,7 +17,6 @@ export const useForm = <T>(initialValues: T): UseFormReturn<T> => {
 
   const getValue = (target: FormChangeEvent["target"]) => {
     if (target.type === "number") return Number(target.value)
-
     return target.value
   }
 
@@ -27,5 +31,9 @@ export const useForm = <T>(initialValues: T): UseFormReturn<T> => {
     setFormState(form.current)
   }
 
-  return [formState, handleChange, clearForm]
+  const updateFormState = (newState: T) => {
+    setFormState(newState)
+  }
+
+  return [formState, handleChange, clearForm, updateFormState]
 }

@@ -70,7 +70,7 @@
       "id": "aaal",
       "player_name": "Fikayo",
       "player_surname": "Tomori",
-      "teamId": "3333"
+      "teamId": "1111"
     },
     {
       "id": "aaam",
@@ -121,51 +121,9 @@
       "teamId": "1111"
     },
     {
-      "id": "bcaf",
-      "player_name": "Gaweł",
-      "player_surname": "Jarecki",
-      "teamId": ""
-    },
-    {
-      "id": "895b",
-      "player_name": "",
-      "player_surname": "s",
-      "teamId": ""
-    },
-    {
-      "id": "7bea",
-      "player_name": "asd",
-      "player_surname": "asd",
-      "teamId": "3333"
-    },
-    {
-      "id": "92dc",
-      "player_name": "asd",
-      "player_surname": "asdfasdf",
-      "teamId": "3333"
-    },
-    {
-      "id": "ca4b",
-      "player_name": "pawe",
-      "player_surname": "",
-      "teamId": ""
-    },
-    {
-      "id": "79a5",
-      "player_name": "test",
-      "player_surname": "Test",
-      "teamId": ""
-    },
-    {
-      "id": "5cff",
-      "player_name": "fasdfasdf",
-      "player_surname": "asfs",
-      "teamId": ""
-    },
-    {
-      "id": "b98e",
-      "player_name": "halo",
-      "player_surname": "ziemia",
+      "id": "b5db",
+      "player_name": "teste",
+      "player_surname": "aasds",
       "teamId": "1111"
     }
   ],
