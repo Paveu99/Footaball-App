@@ -6,10 +6,10 @@ export const useEditPlayersMutation = () => {
   const { apiPut } = useApi()
   const queryClient = useQueryClient()
 
-  const { mutate, data, error, isPending } = useMutation({
+  const { mutate, data, error, isPending, isSuccess } = useMutation({
     mutationKey: ["players"],
-    mutationFn: async (payload: PlayerDto) => {
-      return apiPut<Player, PlayerDto>(`players`, payload)
+    mutationFn: async (payload: Player) => {
+      return apiPut<Player, PlayerDto>(`players/${payload.id}`, payload)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -23,5 +23,6 @@ export const useEditPlayersMutation = () => {
     mutate,
     isPending,
     error,
+    isSuccess,
   }
 }

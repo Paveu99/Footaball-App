@@ -6,10 +6,10 @@ export const useDeletePlayersMutation = () => {
   const { apiDelete } = useApi()
   const queryClient = useQueryClient()
 
-  const { mutate, data, error, isPending } = useMutation({
+  const { mutate, data, error, isPending, isSuccess } = useMutation({
     mutationKey: ["players"],
-    mutationFn: async () => {
-      return apiDelete<Player>(`players`)
+    mutationFn: async (playerId: string) => {
+      return apiDelete<Player>(`players/${playerId}`)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -23,5 +23,6 @@ export const useDeletePlayersMutation = () => {
     mutate,
     isPending,
     error,
+    isSuccess,
   }
 }
