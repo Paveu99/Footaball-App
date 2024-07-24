@@ -5,6 +5,7 @@ import { Footer } from "./views/Footer"
 import { useState } from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Theme } from "./utils/types"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     transition: background-color 0.3s, color 0.3s;
   }
 `
+const queryClient = new QueryClient()
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light")
@@ -36,7 +38,7 @@ function App() {
       primaryTextColor: "#4fd600",
       secondaryTextColor: "white",
       mainScreenBgc: "#2a2b2b",
-      switchBgc: "#6b6b6b",
+      switchBgc: "#333333",
       switchBgcHover: "#232424",
     },
   }
@@ -48,14 +50,16 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={currentTheme === "light" ? light : dark}>
-      <GlobalStyle />
-      <div className="App">
-        <Header themeChange={toogleTheme} theme={currentTheme} />
-        <MainScreen />
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={currentTheme === "light" ? light : dark}>
+        <GlobalStyle />
+        <div className="App">
+          <Header themeChange={toogleTheme} theme={currentTheme} />
+          <MainScreen />
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
