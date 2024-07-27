@@ -6,7 +6,7 @@ import { useEditPlayersMutation } from "../queries/players/useEditPlayersMutatio
 import { useGetTeamsQuery } from "../queries/teams/useGetTeamsQuery"
 import { SubmitButton } from "../buttons/SubmitButton"
 import infoSign from "../../styles/images/info.png"
-import { DeleteButton } from "../buttons/DeleteButton"
+import { Button } from "../buttons/Button"
 import compare from "lodash"
 
 type Props = {
@@ -28,8 +28,8 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
   const [correctSurname, setCorrectSurname] = useState<boolean>(false)
   const [unlockButton, setUnlockButton] = useState<boolean>(false)
   const [showEditMessage, setShowEditMessage] = useState<boolean>(false)
-
   const [initialState, setIinitialState] = useState<Player>(player)
+  const [confirmDeleting, setConfirmDeleting] = useState<boolean>(false)
 
   const [form, handleChange, clear, update] = useForm<Player>(player)
 
@@ -58,6 +58,7 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
 
   useEffect(() => {
     setIinitialState(player)
+    setConfirmDeleting(false)
     update({
       id: player?.id,
       player_name: player?.player_name,
@@ -90,8 +91,8 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
     }
   }, [correctName, correctSurname])
 
-  if (error) return <p>Error while editig player occured</p>
-  if (deleteError) return <p>Error while deleting player occured</p>
+  if (error) return <p>Error while editig player occured...</p>
+  if (deleteError) return <p>Error while deleting player occured...</p>
   if (isLoading) return <p>Loading teams...</p>
   if (isPending) return <p>Loading...</p>
   if (deleteIsPending) return <p>Deleting player</p>
@@ -132,7 +133,7 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
           />
         )}
       </div>
-      <div className="form-row">
+      <div style={{ marginBottom: "15px" }} className="form-row">
         <label htmlFor="teamId">Team:</label>
         <select name="teamId" value={form.teamId} onChange={handleChange}>
           <option value="">Select a team</option>
@@ -147,12 +148,25 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
           )}
         </select>
       </div>
-      {!compare.isEqual(initialState, form) && (
-        <SubmitButton view="SUBMIT" disabled={!unlockButton} />
-      )}
-      {!initialState.teamId && (
-        <DeleteButton view="DELETE" onClick={() => handleDelete(player.id)} />
-      )}
+      <div>
+        {!compare.isEqual(initialState, form) && (
+          <SubmitButton view="SUBMIT" disabled={!unlockButton} />
+        )}
+        {!initialState.teamId && (
+          <Button view="DELETE" onClick={() => setConfirmDeleting(true)} />
+        )}
+      </div>
+      <div>
+        {confirmDeleting && (
+          <div>
+            <p>Are you sure that you want to delete a player from databse?</p>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <Button view="Yes" onClick={() => handleDelete(player.id)} />
+              <Button view="No" onClick={() => setConfirmDeleting(false)} />
+            </div>
+          </div>
+        )}
+      </div>
     </form>
   )
 }

@@ -16,7 +16,7 @@
       "id": "aaac",
       "player_name": "Pedri",
       "player_surname": "Gonzalez",
-      "teamId": "1111"
+      "teamId": ""
     },
     {
       "id": "aaad",
@@ -121,10 +121,10 @@
       "teamId": "1111"
     },
     {
-      "id": "b5db",
-      "player_name": "teste",
-      "player_surname": "aasds",
-      "teamId": "1111"
+      "id": "72ee",
+      "player_name": "Test playetr",
+      "player_surname": "Test player surname",
+      "teamId": ""
     }
   ],
   "teams": [

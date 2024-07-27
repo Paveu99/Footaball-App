@@ -5,6 +5,7 @@ import { Player } from "../../utils/types"
 import { AddPlayerForm } from "../../components/add forms/AddPlayerForm"
 import { PlayersList } from "../../components/lists/PlayersList"
 import { EditPlayerForm } from "../../components/edit forms/EditPlayerForm"
+import { Button } from "../../components/buttons/Button"
 
 const PlayersSegment = styled.div`
   background-color: ${(props) => props.theme.colors.switchBgc};
@@ -18,33 +19,30 @@ export const Players = () => {
     teamId: "",
   })
 
+  const clear = () => {
+    setChosenPlayer({
+      id: "",
+      player_name: "",
+      player_surname: "",
+      teamId: "",
+    })
+  }
+
   const playerDetails = (
-    <>
-      <h3>Chosen player:</h3>
-      <button
-        onClick={() =>
-          setChosenPlayer({
-            id: "",
-            player_name: "",
-            player_surname: "",
-            teamId: "",
-          })
-        }
+    <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginRight: "10px",
+        }}
       >
-        Close
-      </button>
-      <EditPlayerForm
-        player={chosenPlayer}
-        clearForm={() =>
-          setChosenPlayer({
-            id: "",
-            player_name: "",
-            player_surname: "",
-            teamId: "",
-          })
-        }
-      />
-    </>
+        <h3>Chosen player:</h3>
+        <Button view="Close" onClick={clear} />
+      </div>
+      <EditPlayerForm player={chosenPlayer} clearForm={clear} />
+    </div>
   )
 
   useEffect(() => {
