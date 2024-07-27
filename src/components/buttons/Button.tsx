@@ -6,19 +6,19 @@ type Props = {
   onClick?: () => void
 }
 
-const Button = styled.button`
+const StyledButton = styled.button`
   background-color: ${(props) => props.theme.colors.secondaryBackground};
   color: ${(props) => props.theme.colors.primaryTextColor};
 `
 
-export const DeleteButton = ({ view, onClick }: Props) => {
+export const Button = ({ view, onClick }: Props) => {
   return (
-    <Button
+    <StyledButton
       className="submit-button"
       type="button"
       onClick={onClick ? () => onClick() : undefined}
     >
       <strong>{view}</strong>
-    </Button>
+    </StyledButton>
   )
 }
