@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Player } from "../../utils/types"
+import { Player } from "../../../utils/types"
 
 type Props = {
   singlePlayer: Player

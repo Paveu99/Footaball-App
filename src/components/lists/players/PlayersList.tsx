@@ -1,7 +1,7 @@
-import { useGetPlayersQuery } from "../queries/players/useGetPlayersQuery"
+import { useGetPlayersQuery } from "../../queries/players/useGetPlayersQuery"
 import { SinglePlayer } from "./SinglePlayer"
 import "../../styles/SinglePlayer.scss"
-import { Player } from "../../utils/types"
+import { Player } from "../../../utils/types"
 
 type Props = {
   setChosenPlayer: (player: Player) => void
