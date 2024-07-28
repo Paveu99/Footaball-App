@@ -8,11 +8,21 @@ import { SubmitButton } from "../buttons/SubmitButton"
 import infoSign from "../../styles/images/info.png"
 import { Button } from "../buttons/Button"
 import compare from "lodash"
+import styled from "styled-components"
 
 type Props = {
   player: Player
   clearForm: () => void
 }
+
+const Confirmation = styled.div`
+  background-color: ${(props) => props.theme.colors.mainScreenBgc};
+  color: ${(props) => props.theme.colors.secondaryTextColor};
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  width: max-content;
+`
 
 export const EditPlayerForm = ({ player, clearForm }: Props) => {
   const { error, isPending, mutate, isSuccess } = useEditPlayersMutation()
@@ -100,7 +110,7 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {showEditMessage && <p>Player was edited</p>}
+      {showEditMessage && <Confirmation>Player was edited</Confirmation>}
       <div className="form-row">
         <label htmlFor="player_name">Name:</label>
         <input
