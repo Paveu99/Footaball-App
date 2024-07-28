@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "../../styles/Players.scss"
 import styled from "styled-components"
 import { Player } from "../../utils/types"
 import { AddPlayerForm } from "../../components/add forms/AddPlayerForm"
-import { PlayersList } from "../../components/lists/PlayersList"
+import { PlayersList } from "../../components/lists/players/PlayersList"
 import { EditPlayerForm } from "../../components/edit forms/EditPlayerForm"
 import { Button } from "../../components/buttons/Button"
 
@@ -44,10 +44,6 @@ export const Players = () => {
       <EditPlayerForm player={chosenPlayer} clearForm={clear} />
     </div>
   )
-
-  useEffect(() => {
-    console.log(chosenPlayer)
-  }, [chosenPlayer])
 
   return (
     <div className="players">
