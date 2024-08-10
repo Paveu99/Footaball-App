@@ -1,7 +1,8 @@
 import { useGetPlayersQuery } from "../../queries/players/useGetPlayersQuery"
 import { SinglePlayer } from "./SinglePlayer"
-import "../../styles/SinglePlayer.scss"
+import "../../../styles/SinglePlayer.scss"
 import { Player } from "../../../utils/types"
+import infoSign from "../../../styles/images/info.png"
 
 type Props = {
   setChosenPlayer: (player: Player) => void
@@ -10,7 +11,13 @@ type Props = {
 export const PlayersList = ({ setChosenPlayer }: Props) => {
   const { data, error, isLoading } = useGetPlayersQuery()
 
-  if (error) return <p>Players failed to fetch</p>
+  if (error)
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+        <img className="info-button" src={infoSign} />
+        <p>Players failed to fetch</p>
+      </div>
+    )
   if (isLoading) return <p>Loading players</p>
 
   return (
