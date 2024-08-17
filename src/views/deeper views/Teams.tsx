@@ -1,32 +1,36 @@
 import { useState } from "react"
 import "../../styles/Players.scss"
 import styled from "styled-components"
-import { Player } from "../../utils/types"
-import { EditPlayerForm } from "../../components/edit forms/EditPlayerForm"
+import { Team } from "../../utils/types"
 import { Button } from "../../components/buttons/Button"
+import { TeamsList } from "../../components/lists/teams/TeamsList"
+import { AddTeamForm } from "../../components/add forms/AddTeamForm"
+import { EditTeamForm } from "../../components/edit forms/EditTeamsForm"
 
 const TeamsSegment = styled.div`
   background-color: ${(props) => props.theme.colors.switchBgc};
 `
 
 export const Teams = () => {
-  const [chosenTeam, setChosenTeam] = useState<Player>({
+  const [chosenTeam, setChosenTeam] = useState<Team>({
     id: "",
-    player_name: "",
-    player_surname: "",
-    teamId: "",
+    team_location: "",
+    team_name: "",
+    team_year: 0,
+    total_goals: 0,
   })
 
   const clear = () => {
     setChosenTeam({
       id: "",
-      player_name: "",
-      player_surname: "",
-      teamId: "",
+      team_location: "",
+      team_name: "",
+      team_year: 0,
+      total_goals: 0,
     })
   }
 
-  const playerDetails = (
+  const teamDetails = (
     <div>
       <div
         style={{
@@ -36,10 +40,10 @@ export const Teams = () => {
           marginRight: "10px",
         }}
       >
-        <h3>Chosen player:</h3>
+        <h3>Chosen team:</h3>
         <Button view="Close" onClick={clear} />
       </div>
-      <EditPlayerForm player={chosenTeam} clearForm={clear} />
+      <EditTeamForm team={chosenTeam} clearForm={clear} />
     </div>
   )
 
@@ -47,14 +51,14 @@ export const Teams = () => {
     <div className="players">
       <TeamsSegment className="players__segment">
         <h3>Teams list:</h3>
-        {/* <PlayersList setChosenPlayer={setChosenPlayer} /> */}
+        <TeamsList setChosenTeam={setChosenTeam} />
       </TeamsSegment>
       <TeamsSegment className="players__segment">
-        {chosenTeam.id.length > 0 && playerDetails}
+        {chosenTeam.id.length > 0 && teamDetails}
       </TeamsSegment>
       <TeamsSegment className="players__segment">
         <h3>Add team:</h3>
-        {/* <AddPlayerForm /> */}
+        <AddTeamForm />
       </TeamsSegment>
     </div>
   )
