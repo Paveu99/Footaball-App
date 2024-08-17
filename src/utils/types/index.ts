@@ -18,14 +18,14 @@ export type PlayerDto = {
 export type Team = {
   id: string
   team_name: string
-  team_year: number
+  team_year: string | number
   team_location: string
   total_goals: number
 }
 
 export type TeamDto = {
   team_name: string
-  team_year: number
+  team_year: string | number
   team_location: string
   total_goals: number
 }
@@ -44,7 +44,6 @@ export type Game = {
 }
 
 export type GameDto = {
-  id: string
   game_date: string
   game_name: string
   game_place: string

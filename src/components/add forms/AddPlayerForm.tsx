@@ -31,8 +31,6 @@ export const AddPlayerForm = () => {
   }
 
   useEffect(() => {
-    console.log(form)
-
     if (form.player_name.trim().length > 2 && !/\d/.test(form.player_name)) {
       setCorrectName(true)
     } else {
@@ -49,9 +47,6 @@ export const AddPlayerForm = () => {
   }, [form])
 
   useEffect(() => {
-    console.log(correctName)
-    console.log(correctSurname)
-
     if (correctName && correctSurname) {
       setUnlockButton(true)
     } else {
@@ -60,7 +55,7 @@ export const AddPlayerForm = () => {
   }, [correctName, correctSurname])
 
   if (error) return <p>Error while adding player occured</p>
-  if (isLoading) return <p>Loading teams...</p>
+  if (isLoading) return <p>Loading add form...</p>
   if (isPending) return <p>Loading...</p>
 
   return (

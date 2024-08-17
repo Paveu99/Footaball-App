@@ -16,12 +16,14 @@ type Props = {
 }
 
 const Confirmation = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: ${(props) => props.theme.colors.mainScreenBgc};
   color: ${(props) => props.theme.colors.secondaryTextColor};
   margin-bottom: 10px;
-  padding: 5px;
+  margin-right: 15px;
+  padding: 10px;
   border-radius: 10px;
-  width: max-content;
 `
 
 export const EditPlayerForm = ({ player, clearForm }: Props) => {
@@ -158,7 +160,7 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
           )}
         </select>
       </div>
-      <div>
+      <div style={{ display: "flex", gap: "10px" }}>
         {!compare.isEqual(initialState, form) && (
           <SubmitButton view="SUBMIT" disabled={!unlockButton} />
         )}
