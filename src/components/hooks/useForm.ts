@@ -16,14 +16,22 @@ export const useForm = <T>(initialValues: T): UseFormReturn<T> => {
   const form = useRef(initialValues)
 
   const getValue = (target: FormChangeEvent["target"]) => {
-    if (target.type === "number") return Number(target.value)
+    if (target.type === "number") {
+      if (target.value === "") {
+        return ""
+      } else {
+        return Number(target.value)
+      }
+    }
     return target.value
   }
 
   const handleChange = (e: FormChangeEvent) => {
+    const { name, value } = e.target
+
     setFormState((prevState) => ({
       ...prevState,
-      [e.target.name]: getValue(e.target),
+      [name]: value === "" ? "" : getValue(e.target),
     }))
   }
 

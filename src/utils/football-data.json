@@ -70,7 +70,7 @@
       "id": "aaal",
       "player_name": "Fikayo",
       "player_surname": "Tomori",
-      "teamId": "1111"
+      "teamId": "3333"
     },
     {
       "id": "aaam",
@@ -112,13 +112,13 @@
       "id": "aaat",
       "player_name": "Anthony",
       "player_surname": "Martial",
-      "teamId": ""
+      "teamId": null
     },
     {
       "id": "1e4c",
       "player_name": "Paweł",
       "player_surname": "Jarecki",
-      "teamId": "1111"
+      "teamId": null
     },
     {
       "id": "b5db",
@@ -144,10 +144,31 @@
     },
     {
       "id": "3333",
+      "team_location": "Milano",
       "team_name": "AC Milan",
       "team_year": 1899,
-      "team_location": "Milano",
       "total_goals": 3
+    },
+    {
+      "id": "9d3a",
+      "team_name": "TestTeam",
+      "team_location": "London",
+      "team_year": 1999,
+      "total_goals": 0
+    },
+    {
+      "id": "e5a1",
+      "team_name": "TestTeamTwo",
+      "team_location": "Barcelona",
+      "team_year": 2000,
+      "total_goals": 0
+    },
+    {
+      "id": "daf0",
+      "team_name": "TestThree",
+      "team_location": "MASD",
+      "team_year": 2000,
+      "total_goals": 0
     }
   ],
   "games": [
