@@ -1,6 +1,6 @@
 import { ChangeEvent, useRef, useState } from "react"
 
-type FormChangeEvent = ChangeEvent<
+export type FormChangeEvent = ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 >
 
