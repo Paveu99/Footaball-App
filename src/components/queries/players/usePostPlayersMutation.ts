@@ -6,7 +6,7 @@ export const usePostPlayersMutation = () => {
   const { apiPost } = useApi()
   const queryClient = useQueryClient()
 
-  const { mutate, data, error, isPending } = useMutation({
+  const { mutate, data, error, isPending, isSuccess } = useMutation({
     mutationKey: ["players"],
     mutationFn: async (payload: PlayerDto) => {
       return apiPost<Player, PlayerDto>(`players`, payload)
@@ -23,5 +23,6 @@ export const usePostPlayersMutation = () => {
     mutate,
     isPending,
     error,
+    isSuccess,
   }
 }
