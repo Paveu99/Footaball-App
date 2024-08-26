@@ -1,7 +1,7 @@
 export const useApi = () => {
   const call = async <R, P = object>(
     url: string,
-    method: "GET" | "DELETE" | "POST" | "PUT",
+    method: "GET" | "DELETE" | "POST" | "PATCH",
     body?: P,
   ) => {
     const commonData = {
@@ -46,7 +46,7 @@ export const useApi = () => {
   }
 
   const apiPut = async <R, P>(url: string, data: P) => {
-    return await call<R, P>(url, "PUT", data)
+    return await call<R, P>(url, "PATCH", data)
   }
 
   return {
