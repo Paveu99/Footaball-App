@@ -103,69 +103,80 @@ export const EditPlayerForm = ({ player, clearForm }: Props) => {
     }
   }, [correctName, correctSurname])
 
+  useEffect(() => {
+    update(initialState)
+  }, [confirmDeleting])
+
   if (error) return <p>Error while editig player occured...</p>
   if (deleteError) return <p>Error while deleting player occured...</p>
   if (isLoading) return <p>Loading teams...</p>
   if (isPending) return <p>Loading...</p>
   if (deleteIsPending) return <p>Deleting player</p>
-  if (deleteIsSuccess) return <p>Player was deleted</p>
+  if (deleteIsSuccess) return <Confirmation>Player was deleted</Confirmation>
 
   return (
     <form onSubmit={handleSubmit}>
       {showEditMessage && <Confirmation>Player was edited</Confirmation>}
-      <div className="form-row">
-        <label htmlFor="player_name">Name:</label>
-        <input
-          type="text"
-          name="player_name"
-          value={form.player_name}
-          onChange={handleChange}
-        />
-        {!correctName && (
-          <img
-            className="info-button"
-            src={infoSign}
-            title="At least 3 characters and no numbers"
+      <fieldset disabled={confirmDeleting} style={{ border: "none" }}>
+        <div className="form-row">
+          <label htmlFor="player_name">Name:</label>
+          <input
+            type="text"
+            name="player_name"
+            value={form.player_name}
+            onChange={handleChange}
           />
-        )}
-      </div>
-      <div className="form-row">
-        <label htmlFor="player_surname">Surname:</label>
-        <input
-          type="text"
-          name="player_surname"
-          value={form.player_surname}
-          onChange={handleChange}
-        />
-        {!correctSurname && (
-          <img
-            className="info-button"
-            src={infoSign}
-            title="At least 3 characters and no numbers"
-          />
-        )}
-      </div>
-      <div style={{ marginBottom: "15px" }} className="form-row">
-        <label htmlFor="teamId">Team:</label>
-        <select name="teamId" value={form.teamId} onChange={handleChange}>
-          <option value="">Select a team</option>
-          {teamsData?.length === 0 || teamsError ? (
-            <option>Loading...</option>
-          ) : (
-            teamsData?.map((team: Team) => (
-              <option value={team.id} key={team.id}>
-                {team.team_name}
-              </option>
-            ))
+          {!correctName && (
+            <img
+              className="info-button"
+              src={infoSign}
+              title="At least 3 characters and no numbers"
+            />
           )}
-        </select>
-      </div>
+        </div>
+        <div className="form-row">
+          <label htmlFor="player_surname">Surname:</label>
+          <input
+            type="text"
+            name="player_surname"
+            value={form.player_surname}
+            onChange={handleChange}
+          />
+          {!correctSurname && (
+            <img
+              className="info-button"
+              src={infoSign}
+              title="At least 3 characters and no numbers"
+            />
+          )}
+        </div>
+        <div style={{ marginBottom: "15px" }} className="form-row">
+          <label htmlFor="teamId">Team:</label>
+          <select name="teamId" value={form.teamId} onChange={handleChange}>
+            <option value="">Select a team</option>
+            {teamsData?.length === 0 || teamsError ? (
+              <option>Loading...</option>
+            ) : (
+              teamsData?.map((team: Team) => (
+                <option value={team.id} key={team.id}>
+                  {team.team_name}
+                </option>
+              ))
+            )}
+          </select>
+        </div>
+      </fieldset>
       <div style={{ display: "flex", gap: "10px" }}>
         {!compare.isEqual(initialState, form) && (
-          <SubmitButton view="SUBMIT" disabled={!unlockButton} />
+          <SubmitButton view="UPDATE PLAYER" disabled={!unlockButton} />
         )}
         {!initialState.teamId && (
-          <Button view="DELETE" onClick={() => setConfirmDeleting(true)} />
+          <Button
+            color="white"
+            backgroundColor="red"
+            view="DELETE"
+            onClick={() => setConfirmDeleting(true)}
+          />
         )}
       </div>
       <div>

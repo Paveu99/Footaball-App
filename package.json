@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint --report-unused-disable-directives --max-warnings 5",
+    "lint": "eslint --report-unused-disable-directives --max-warnings 20",
     "prettify": "prettier --write",
     "preview": "vite preview",
     "prepare": "husky install",

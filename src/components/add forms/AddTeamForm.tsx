@@ -8,17 +8,37 @@ import { useGetPlayersQuery } from "../queries/players/useGetPlayersQuery"
 import { usePostTeamsMutation } from "../queries/teams/usePostTeamsMutation"
 import { useBatchEditPlayersMutation } from "../queries/players/useEditBatchPlayersMutation"
 import { PlayersToAdd } from "./PlayersToAdd"
+import styled from "styled-components"
+
+const Confirmation = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.theme.colors.mainScreenBgc};
+  color: ${(props) => props.theme.colors.secondaryTextColor};
+  margin-bottom: 10px;
+  margin-right: 15px;
+  padding: 10px;
+  border-radius: 10px;
+`
 
 export const AddTeamForm = () => {
   const { data: players, error: playersError, isLoading } = useGetPlayersQuery()
-  const { data: team, error, isPending, mutate } = usePostTeamsMutation()
+  const {
+    data: team,
+    error,
+    isPending,
+    mutate,
+    isSuccess,
+  } = usePostTeamsMutation()
   const {
     error: errorEditingPlayers,
     isPending: isPendingEditingPlayers,
     mutate: mutatePlayers,
+    isSuccess: isSuccessEditingPlayers,
   } = useBatchEditPlayersMutation()
 
   const [correctName, setCorrectName] = useState<boolean>(false)
+  const [showEditMessage, setShowEditMessage] = useState<boolean>(false)
   const [correctLocation, setCorrectLocation] = useState<boolean>(false)
   const [correctYear, setCorrectYear] = useState<boolean>(false)
   const [unlockButton, setUnlockButton] = useState<boolean>(false)
@@ -31,7 +51,7 @@ export const AddTeamForm = () => {
   const [form, handleChange, clear] = useForm<TeamDto>({
     team_name: "",
     team_location: "",
-    team_year: "",
+    team_year: 1857,
     total_goals: 0,
   })
 
@@ -64,7 +84,6 @@ export const AddTeamForm = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-
     mutate(form)
   }
 
@@ -92,16 +111,12 @@ export const AddTeamForm = () => {
   }, [form])
 
   useEffect(() => {
-    if (correctName && correctLocation && correctYear) {
-      setUnlockButton(true)
-    } else {
-      setUnlockButton(false)
-    }
+    setUnlockButton(correctName && correctLocation && correctYear)
   }, [correctName, correctLocation, correctYear])
 
   useEffect(() => {
     setAvailablePlayers(players)
-  }, [players])
+  }, [isSuccessEditingPlayers])
 
   useEffect(() => {
     if (!isPending && team && playersToAdd.length > 0) {
@@ -116,8 +131,12 @@ export const AddTeamForm = () => {
       setCorrectYear(false)
       setUnlockButton(false)
       setPlayersToAdd([])
+      setShowEditMessage(true)
+      setTimeout(() => {
+        setShowEditMessage(false)
+      }, 2000)
     }
-  }, [team])
+  }, [isSuccess])
 
   if (error) return <p>Error while adding team occured</p>
   if (isLoading) return <p>Loading add form...</p>
@@ -128,6 +147,7 @@ export const AddTeamForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {showEditMessage && <Confirmation>Team was created</Confirmation>}
       <div className="form-row">
         <label htmlFor="team_name">Name:</label>
         <input
@@ -167,7 +187,8 @@ export const AddTeamForm = () => {
           name="team_year"
           value={form.team_year}
           onChange={handleChange}
-          min={0}
+          min={1857}
+          max={new Date().toISOString().slice(0, 4)}
         />
         {!correctYear && (
           <img
@@ -195,10 +216,10 @@ export const AddTeamForm = () => {
         <label htmlFor="playerId">Add Player:</label>
         <select name="playerId" onChange={handlePlayerChosing}>
           <option value="">Select a player</option>
-          {availablePlayers?.length === 0 || playersError ? (
+          {players?.filter((el) => !el.teamId)?.length === 0 || playersError ? (
             <option>Loading...</option>
           ) : (
-            availablePlayers
+            players
               ?.filter((el) => !el.teamId)
               .map((player: Player) => (
                 <option value={player.id} key={player.id}>

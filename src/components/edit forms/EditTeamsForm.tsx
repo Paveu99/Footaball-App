@@ -95,6 +95,22 @@ export const EditTeamForm = ({ team, clearForm }: Props) => {
     }
   }
 
+  const handleDeletingPlayer = () => {
+    if (!isPending && team) {
+      const allPlayers = [...(availablePlayers || []), ...playersToDelete]
+
+      if (allPlayers.length > 0) {
+        const updatedPlayers = allPlayers.map((player) => ({
+          ...player,
+          teamId: "",
+        }))
+        mutatePlayers(updatedPlayers)
+      }
+      setConfirmDeletingPlayer(false)
+      setPlayersToDelete([])
+    }
+  }
+
   const handleEditingPlayer = () => {
     if (!isPending && team && playersToDelete.length > 0) {
       const updatedPlayers = playersToDelete.map((team) => ({
@@ -102,7 +118,11 @@ export const EditTeamForm = ({ team, clearForm }: Props) => {
         teamId: "",
       }))
       mutatePlayers(updatedPlayers)
-      setConfirmDeletingPlayer(false)
+      setShowEditMessage(true)
+      setTimeout(() => {
+        setShowEditMessage(false)
+        setConfirmDeletingPlayer(false)
+      }, 2000)
       setPlayersToDelete([])
     }
   }
@@ -117,7 +137,7 @@ export const EditTeamForm = ({ team, clearForm }: Props) => {
 
   useEffect(() => {
     if (deleteIsSuccess) {
-      handleEditingPlayer()
+      handleDeletingPlayer()
     }
   }, [deleteIsSuccess])
 
@@ -134,14 +154,8 @@ export const EditTeamForm = ({ team, clearForm }: Props) => {
   useEffect(() => {
     setIinitialState(team)
     setConfirmDeleting(false)
-    update({
-      id: team?.id,
-      team_location: team?.team_location,
-      team_name: team?.team_name,
-      team_year: team?.team_year,
-      total_goals: team?.total_goals,
-    })
-    handleEditingPlayer()
+    update(team)
+    setPlayersToDelete([])
   }, [team])
 
   useEffect(() => {
@@ -178,106 +192,134 @@ export const EditTeamForm = ({ team, clearForm }: Props) => {
     }
   }, [correctName, correctLocation, correctYear])
 
+  useEffect(() => {
+    update(initialState)
+    setAvailablePlayers(teamsData)
+    setPlayersToDelete([])
+  }, [confirmDeleting])
+
   if (error) return <p>Error while editig player occured...</p>
   if (deleteError) return <p>Error while deleting player occured...</p>
-  // if (isLoading) return <p>Loading teams...</p>
   if (isPending) return <p>Loading...</p>
   if (deleteIsPending) return <p>Deleting team</p>
-  if (deleteIsSuccess) return <p>Team was deleted</p>
+  if (deleteIsSuccess) return <Confirmation>Team was deleted</Confirmation>
 
   return (
     <form onSubmit={handleSubmit}>
       {showEditMessage && <Confirmation>Team was edited</Confirmation>}
-      <div className="form-row">
-        <label htmlFor="team_name">Name:</label>
-        <input
-          type="text"
-          name="team_name"
-          value={form.team_name}
-          onChange={handleChange}
-        />
-        {!correctName && (
-          <img
-            className="info-button"
-            src={infoSign}
-            title="At least 3 characters and no numbers"
-          />
-        )}
-      </div>
-      <div className="form-row">
-        <label htmlFor="team_location">Team's location:</label>
-        <input
-          type="text"
-          name="team_location"
-          value={form.team_location}
-          onChange={handleChange}
-        />
-        {!correctLocation && (
-          <img
-            className="info-button"
-            src={infoSign}
-            title="At least 3 characters and no numbers"
-          />
-        )}
-      </div>
-      <div className="form-row">
-        <label htmlFor="team_year">Established in:</label>
-        <input
-          type="number"
-          name="team_year"
-          value={form.team_year}
-          onChange={handleChange}
-          min={0}
-        />
-        {!correctYear && (
-          <img
-            className="info-button"
-            src={infoSign}
-            title="Minimum value is 1857"
-          />
-        )}
-      </div>
-      {playersToDelete.length > 0 && (
-        <div className="form-row">
-          <div>
-            <label htmlFor="">Players to delete:</label>
-            <ul>
-              {playersToDelete.map((el) => (
-                <li key={el.id}>
-                  <PlayersToAdd player={el} undo={undoDeletingPlayer} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      {showEditMessage && confirmDeletingPlayer && (
+        <Confirmation>Players were deleted from the team </Confirmation>
       )}
-      <div className="form-row">
-        <label htmlFor="playerId">Available players:</label>
-        <select name="playerId" onChange={handlePlayerChosing}>
-          <option value="">Select a player</option>
-          {availablePlayers?.length === 0 || teamsError ? (
-            <option>No players in the team</option>
-          ) : (
-            availablePlayers?.map((player: Player) => (
-              <option value={player.id} key={player.id}>
-                {player.player_name} {player.player_surname}
-              </option>
-            ))
-          )}
-        </select>
-      </div>
-      <div style={{ display: "flex", gap: "10px" }}>
-        {!compare.isEqual(initialState, form) && (
-          <SubmitButton view="SUBMIT" disabled={!unlockButton} />
-        )}
-        {gamesPlayed?.length === 0 && (
-          <Button view="DELETE TEAM" onClick={() => setConfirmDeleting(true)} />
-        )}
-        {playersToDelete?.length > 0 && (
-          <Button
-            view="REMOVE PLAYERS"
-            onClick={() => setConfirmDeletingPlayer(true)}
+      <fieldset disabled={confirmDeleting} style={{ border: "none" }}>
+        <div className="form-row">
+          <label htmlFor="team_name">Name:</label>
+          <input
+            type="text"
+            name="team_name"
+            value={form.team_name}
+            onChange={handleChange}
           />
+          {!correctName && (
+            <img
+              className="info-button"
+              src={infoSign}
+              title="At least 3 characters and no numbers"
+            />
+          )}
+        </div>
+        <div className="form-row">
+          <label htmlFor="team_location">Team's location:</label>
+          <input
+            type="text"
+            name="team_location"
+            value={form.team_location}
+            onChange={handleChange}
+          />
+          {!correctLocation && (
+            <img
+              className="info-button"
+              src={infoSign}
+              title="At least 3 characters and no numbers"
+            />
+          )}
+        </div>
+        <div className="form-row">
+          <label htmlFor="team_year">Established in:</label>
+          <input
+            type="number"
+            name="team_year"
+            value={form.team_year}
+            onChange={handleChange}
+            min={0}
+          />
+          {!correctYear && (
+            <img
+              className="info-button"
+              src={infoSign}
+              title="Minimum value is 1857"
+            />
+          )}
+        </div>
+        {playersToDelete.length > 0 && (
+          <div className="form-row">
+            <div>
+              <label htmlFor="">Players to delete:</label>
+              <ul>
+                {playersToDelete.map((el) => (
+                  <li key={el.id}>
+                    <PlayersToAdd player={el} undo={undoDeletingPlayer} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+        <div className="form-row">
+          <label htmlFor="playerId">Available players:</label>
+          <select name="playerId" onChange={handlePlayerChosing}>
+            <option value="">Select a player</option>
+            {availablePlayers?.length === 0 || teamsError ? (
+              <option>No players in the team</option>
+            ) : (
+              availablePlayers?.map((player: Player) => (
+                <option value={player.id} key={player.id}>
+                  {player.player_name} {player.player_surname}
+                </option>
+              ))
+            )}
+          </select>
+        </div>
+      </fieldset>
+      <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
+        <div style={{ display: "flex", gap: "10px" }}>
+          {!compare.isEqual(initialState, form) && (
+            <SubmitButton view="UPDATE TEAM" disabled={!unlockButton} />
+          )}
+          {playersToDelete?.length > 0 && (
+            <Button
+              view="REMOVE PLAYERS"
+              onClick={() => setConfirmDeletingPlayer(true)}
+            />
+          )}
+        </div>
+        {gamesPlayed?.length === 0 && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              paddingBottom: "5px",
+            }}
+          >
+            <Button
+              color="white"
+              backgroundColor="red"
+              view="DELETE TEAM"
+              onClick={() => setConfirmDeleting(true)}
+            />
+            <small style={{ fontSize: "10px" }}>
+              *team can be deleted, because it didn't play any games
+            </small>
+          </div>
         )}
       </div>
       <div>
