@@ -30,13 +30,17 @@ export type TeamDto = {
   total_goals: number
 }
 
+export type TeamToEdit = {
+  id: string
+  total_goals: number
+}
+
 export type Game = {
   id: string
   game_date: string
   game_name: string
   game_place: string
   game_time: number
-  game_result: string
   team_a: string
   team_b: string
   team_a_goals: number
@@ -48,7 +52,6 @@ export type GameDto = {
   game_name: string
   game_place: string
   game_time: number
-  game_result: string
   team_a: string
   team_b: string
   team_a_goals: number
