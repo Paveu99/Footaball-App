@@ -4,7 +4,7 @@ import { Switch } from "../components/switch/Switch"
 import "../styles/MainScreen.scss"
 import { TeamsBase } from "./TeamsBase"
 import { GamesBase } from "./GamesBase"
-import { Stats } from "./Stats"
+import { StatsBase } from "./StatsBase"
 import { PlayersBase } from "./PlayersBase"
 
 export const MainScreen = () => {
@@ -20,7 +20,7 @@ export const MainScreen = () => {
       ) : view === "c" ? (
         <GamesBase />
       ) : view === "d" ? (
-        <Stats />
+        <StatsBase />
       ) : (
         <PlayersBase />
       )}
