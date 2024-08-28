@@ -10,8 +10,6 @@ import { PlayersBase } from "./PlayersBase"
 export const MainScreen = () => {
   const [view, setView] = useState<Views>("a")
 
-  console.log("main")
-
   return (
     <div className="main-screen">
       <Switch changeView={setView} />
