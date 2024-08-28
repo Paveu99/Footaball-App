@@ -30,7 +30,7 @@ export const Header = ({ themeChange, theme }: Props) => {
         <strong style={{ marginLeft: "15px" }}>FOOTBALL APP ®</strong>
       </div>
       <div className="header__container">
-        <div className="container">
+        <div>
           <ThemeSwitchButton
             onClick={themeChange}
             className="theme-toggle-button"

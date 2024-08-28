@@ -13,7 +13,7 @@ const SingleRow = styled.div`
 
 export const TopTeam = ({ singleTeam, index }: Props) => {
   return (
-    <SingleRow className="single-player">
+    <SingleRow className="single-element">
       {index}. {singleTeam.team_name} -{" "}
       <span style={{ fontWeight: "bold" }}>{singleTeam.total_goals}</span>
     </SingleRow>
