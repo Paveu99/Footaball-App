@@ -1,6 +1,6 @@
 import { useGetPlayersQuery } from "../../queries/players/useGetPlayersQuery"
 import { SinglePlayer } from "./SinglePlayer"
-import "../../../styles/SinglePlayer.scss"
+import "../../../styles/SingleElement.scss"
 import { Player } from "../../../utils/types"
 import infoSign from "../../../styles/images/info.png"
 

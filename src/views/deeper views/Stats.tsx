@@ -1,7 +1,7 @@
 import "../../styles/Stats.scss"
 import styled from "styled-components"
 import { LatestGame } from "./LatestGame"
-import { TopTeams } from "./TopTeams"
+import { TopTeams } from "../../components/lists/teams/TopTeams"
 import { Chart } from "./Chart"
 
 const StatsSegment = styled.div`
@@ -16,7 +16,7 @@ export const Stats = () => {
         <LatestGame />
       </StatsSegment>
       <StatsSegment className="top_3">
-        <h3>Top teams:</h3>
+        <h3>Top teams with most goals:</h3>
         <TopTeams />
       </StatsSegment>
       <StatsSegment className="statistics">

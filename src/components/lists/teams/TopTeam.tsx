@@ -4,7 +4,6 @@ import { Team } from "../../../utils/types"
 type Props = {
   singleTeam: Team
   index: number
-  chosenTeam: (team: Team) => void
 }
 
 const SingleRow = styled.div`
@@ -12,13 +11,11 @@ const SingleRow = styled.div`
   color: ${(props) => props.theme.colors.primaryTextColor};
 `
 
-export const SingleTeam = ({ singleTeam, chosenTeam, index }: Props) => {
+export const TopTeam = ({ singleTeam, index }: Props) => {
   return (
-    <SingleRow
-      className="single-element"
-      onClick={() => chosenTeam(singleTeam)}
-    >
-      {index}. {singleTeam.team_name}
+    <SingleRow className="single-player">
+      {index}. {singleTeam.team_name} -{" "}
+      <span style={{ fontWeight: "bold" }}>{singleTeam.total_goals}</span>
     </SingleRow>
   )
 }

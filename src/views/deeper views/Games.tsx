@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../../styles/Players.scss"
+import "../../styles/MainDisplay.scss"
 import styled from "styled-components"
 import { Game } from "../../utils/types"
 import { Button } from "../../components/buttons/Button"
@@ -56,15 +56,15 @@ export const Games = () => {
   )
 
   return (
-    <div className="players">
-      <GamesSegment className="players__segment">
+    <div className="container">
+      <GamesSegment className="container__segment">
         <h3>Games list:</h3>
         <GamesList setChosenGame={setChosenGame} />
       </GamesSegment>
-      <GamesSegment className="players__segment">
+      <GamesSegment className="container__segment">
         {chosenGame.id.length > 0 && gameDetails}
       </GamesSegment>
-      <GamesSegment className="players__segment">
+      <GamesSegment className="container__segment">
         <h3>Add game:</h3>
         <AddGameForm />
       </GamesSegment>

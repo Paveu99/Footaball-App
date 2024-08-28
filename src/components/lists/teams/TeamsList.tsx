@@ -1,4 +1,4 @@
-import "../../../styles/SinglePlayer.scss"
+import "../../../styles/SingleElement.scss"
 import { Team } from "../../../utils/types"
 import infoSign from "../../../styles/images/info.png"
 import { SingleTeam } from "./SingleTeam"

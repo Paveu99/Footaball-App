@@ -14,7 +14,10 @@ const SingleRow = styled.div`
 
 export const SingleGame = ({ singleGame, chosenGame, index }: Props) => {
   return (
-    <SingleRow className="single-player" onClick={() => chosenGame(singleGame)}>
+    <SingleRow
+      className="single-element"
+      onClick={() => chosenGame(singleGame)}
+    >
       {index}. {singleGame.game_name}
     </SingleRow>
   )

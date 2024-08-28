@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Player } from "../../utils/types"
-import "../../styles/AddPlayerForm.scss"
+import "../../styles/AddForm.scss"
 
 type Props = {
   player: Player

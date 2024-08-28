@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import "../../styles/AddPlayerForm.scss"
+import "../../styles/AddForm.scss"
 
 type Props = {
   view: string

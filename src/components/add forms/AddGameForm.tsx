@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react"
 import { GameDto, Team } from "../../utils/types"
 import { FormChangeEvent, useForm } from "../hooks/useForm"
-import "../../styles/AddPlayerForm.scss"
+import "../../styles/AddForm.scss"
 import { SubmitButton } from "../buttons/SubmitButton"
 import infoSign from "../../styles/images/info.png"
 import { useGetTeamsQuery } from "../queries/teams/useGetTeamsQuery"

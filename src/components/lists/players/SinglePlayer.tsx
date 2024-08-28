@@ -15,7 +15,7 @@ const SingleRow = styled.div`
 export const SinglePlayer = ({ singlePlayer, chosenPerson, index }: Props) => {
   return (
     <SingleRow
-      className="single-player"
+      className="single-element"
       onClick={() => chosenPerson(singlePlayer)}
     >
       {index}. {singlePlayer.player_name} {singlePlayer.player_surname}
