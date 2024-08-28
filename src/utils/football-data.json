@@ -115,28 +115,28 @@
       "team_name": "FC Barcelona",
       "team_year": 1899,
       "team_location": "Barcelona",
-      "total_goals": 103
+      "total_goals": 5
     },
     {
       "id": "2222",
       "team_location": "Madrid",
       "team_name": "Real Madrid",
       "team_year": 1901,
-      "total_goals": 102
+      "total_goals": 6
     },
     {
       "id": "3333",
       "team_location": "Milano",
       "team_name": "AC Milan",
       "team_year": 1899,
-      "total_goals": 8
+      "total_goals": 4
     },
     {
       "id": "9d3a",
       "team_name": "TestTeam",
       "team_location": "London",
       "team_year": 1999,
-      "total_goals": -7
+      "total_goals": 0
     },
     {
       "id": "e5a1",
@@ -150,14 +150,14 @@
       "team_name": "Unknown team",
       "team_location": "Nowhere",
       "team_year": 2000,
-      "total_goals": -1
+      "total_goals": 0
     },
     {
       "id": "170a",
       "team_name": "TestTeamFive",
       "team_location": "Barcelona",
       "team_year": 1857,
-      "total_goals": 2
+      "total_goals": 0
     },
     {
       "id": "9586",
@@ -176,7 +176,7 @@
       "game_time": 90,
       "team_a": "1111",
       "team_b": "2222",
-      "team_a_goals": 3,
+      "team_a_goals": 5,
       "team_b_goals": 2
     },
     {
@@ -199,39 +199,6 @@
       "team_a": "3333",
       "team_b": "2222",
       "team_a_goals": 3,
-      "team_b_goals": 3
-    },
-    {
-      "id": "35aa",
-      "game_date": "2024-08-25",
-      "game_name": "La Liga - match day 2",
-      "game_place": "Barcelona",
-      "game_time": 94,
-      "team_a": "1111",
-      "team_b": "3333",
-      "team_a_goals": 2,
-      "team_b_goals": 1
-    },
-    {
-      "id": "3926",
-      "game_date": "2024-08-25",
-      "game_name": "Test",
-      "game_place": "Test location 2",
-      "game_time": 20,
-      "team_a": "1111",
-      "team_b": "170a",
-      "team_a_goals": 1,
-      "team_b_goals": 2
-    },
-    {
-      "id": "8051",
-      "game_date": "2024-08-21",
-      "game_name": "La Liga - match day 310",
-      "game_place": "Spotify Camp Nou-zmiana",
-      "game_time": 100,
-      "team_a": "2222",
-      "team_b": "9d3a",
-      "team_a_goals": 2,
       "team_b_goals": 3
     }
   ]
