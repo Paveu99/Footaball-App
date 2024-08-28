@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    grid-template-columns: 3fr 5fr 4fr;
+    gap: 5px;
+    width: 97%;
+    height: 100%;
+
+    &__segment {
+        align-self: start;
+        border-radius: 10px;
+        padding-left: 15px;
+        margin-bottom: 20px;
+    }
+}

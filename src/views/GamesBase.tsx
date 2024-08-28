@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import "../styles/Base.scss"
+import { Headline } from "../components/headline/Headline"
+import { Games } from "./deeper views/Games"
 
 const GamesView = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBackground};
@@ -7,94 +9,10 @@ const GamesView = styled.div`
 `
 
 export const GamesBase = () => {
-  console.log("games")
-
   return (
     <GamesView className="base">
-      Games
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
-      <p>TETS</p>
+      <Headline text="Games" />
+      <Games />
     </GamesView>
   )
 }

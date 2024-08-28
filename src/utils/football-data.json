@@ -22,7 +22,7 @@
       "id": "aaad",
       "player_name": "Pablo",
       "player_surname": "Gavirra",
-      "teamId": "1111"
+      "teamId": ""
     },
     {
       "id": "aaae",
@@ -37,12 +37,6 @@
       "teamId": "2222"
     },
     {
-      "id": "aaag",
-      "player_name": "Antonio",
-      "player_surname": "Rudiger",
-      "teamId": "2222"
-    },
-    {
       "id": "aaah",
       "player_name": "Toni",
       "player_surname": "Kroos",
@@ -52,7 +46,7 @@
       "id": "aaai",
       "player_name": "Luka",
       "player_surname": "Modric",
-      "teamId": "2222"
+      "teamId": ""
     },
     {
       "id": "aaaj",
@@ -64,13 +58,13 @@
       "id": "aaak",
       "player_name": "Mike",
       "player_surname": "Maignan",
-      "teamId": "3333"
+      "teamId": ""
     },
     {
       "id": "aaal",
       "player_name": "Fikayo",
       "player_surname": "Tomori",
-      "teamId": "3333"
+      "teamId": ""
     },
     {
       "id": "aaam",
@@ -106,13 +100,13 @@
       "id": "aaas",
       "player_name": "Raphael",
       "player_surname": "Varane",
-      "teamId": ""
+      "teamId": "2222"
     },
     {
-      "id": "aaat",
-      "player_name": "Anthony",
-      "player_surname": "Martial",
-      "teamId": ""
+      "id": "55ac",
+      "player_name": "Maniek",
+      "player_surname": "Złota rączka",
+      "teamId": "1111"
     }
   ],
   "teams": [
@@ -121,21 +115,56 @@
       "team_name": "FC Barcelona",
       "team_year": 1899,
       "team_location": "Barcelona",
-      "total_goals": 7
+      "total_goals": 5
     },
     {
       "id": "2222",
-      "team_name": "Real Madrid",
-      "team_year": 1902,
       "team_location": "Madrid",
-      "total_goals": 3
+      "team_name": "Real Madrid",
+      "team_year": 1901,
+      "total_goals": 6
     },
     {
       "id": "3333",
+      "team_location": "Milano",
       "team_name": "AC Milan",
       "team_year": 1899,
-      "team_location": "Milano",
-      "total_goals": 3
+      "total_goals": 4
+    },
+    {
+      "id": "9d3a",
+      "team_name": "TestTeam",
+      "team_location": "London",
+      "team_year": 1999,
+      "total_goals": 0
+    },
+    {
+      "id": "e5a1",
+      "team_name": "TestTeamTwo",
+      "team_location": "Barcelona",
+      "team_year": 2000,
+      "total_goals": 0
+    },
+    {
+      "id": "c416",
+      "team_name": "Unknown team",
+      "team_location": "Nowhere",
+      "team_year": 2000,
+      "total_goals": 0
+    },
+    {
+      "id": "170a",
+      "team_name": "TestTeamFive",
+      "team_location": "Barcelona",
+      "team_year": 1857,
+      "total_goals": 0
+    },
+    {
+      "id": "9586",
+      "team_name": "ASDF",
+      "team_location": "ASDGASDG",
+      "team_year": 1890,
+      "total_goals": 0
     }
   ],
   "games": [
@@ -145,19 +174,17 @@
       "game_name": "La Liga - match day 31",
       "game_place": "Spotify Camp Nou",
       "game_time": 90,
-      "game_result": "3-2",
       "team_a": "1111",
       "team_b": "2222",
-      "team_a_goals": 3,
+      "team_a_goals": 5,
       "team_b_goals": 2
     },
     {
       "id": "zzz2",
       "game_date": "2023-12-10",
-      "game_name": "Champions League Semi-Final",
+      "game_name": "Champions League Semi-Finalismia",
       "game_place": "Santiago Bernabeu",
       "game_time": 95,
-      "game_result": "1-1",
       "team_a": "2222",
       "team_b": "3333",
       "team_a_goals": 1,
@@ -165,15 +192,14 @@
     },
     {
       "id": "zzz3",
-      "game_date": "2023-08-10",
+      "game_date": "2023-08-09",
       "game_name": "Champions League Group Stage",
       "game_place": "San Siro",
-      "game_time": 92,
-      "game_result": "2-4",
+      "game_time": 90,
       "team_a": "3333",
-      "team_b": "1111",
-      "team_a_goals": 2,
-      "team_b_goals": 4
+      "team_b": "2222",
+      "team_a_goals": 3,
+      "team_b_goals": 3
     }
   ]
 }

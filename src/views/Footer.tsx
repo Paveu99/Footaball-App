@@ -7,8 +7,6 @@ const StyledFooter = styled.div`
 `
 
 export const Footer = () => {
-  console.log("footer")
-
   return (
     <StyledFooter className="footer">
       <footer className="footer__text">All rights belong to the creator</footer>

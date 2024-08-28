@@ -4,13 +4,11 @@ import { Switch } from "../components/switch/Switch"
 import "../styles/MainScreen.scss"
 import { TeamsBase } from "./TeamsBase"
 import { GamesBase } from "./GamesBase"
-import { Stats } from "./Stats"
+import { StatsBase } from "./StatsBase"
 import { PlayersBase } from "./PlayersBase"
 
 export const MainScreen = () => {
   const [view, setView] = useState<Views>("a")
-
-  console.log("main")
 
   return (
     <div className="main-screen">
@@ -20,7 +18,7 @@ export const MainScreen = () => {
       ) : view === "c" ? (
         <GamesBase />
       ) : view === "d" ? (
-        <Stats />
+        <StatsBase />
       ) : (
         <PlayersBase />
       )}

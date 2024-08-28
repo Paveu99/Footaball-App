@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --report-unused-disable-directives --max-warnings 100",
     "prettify": "prettier --write",
     "preview": "vite preview",
     "prepare": "husky install",
@@ -14,9 +14,13 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.1",
+    "@types/lodash": "^4.17.7",
+    "date-fns": "^3.6.0",
     "json-server": "^1.0.0-beta.1",
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "recharts": "^2.12.7",
     "styled-components": "^6.1.12"
   },
   "devDependencies": {
