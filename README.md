@@ -64,12 +64,12 @@ To run the application, follow these steps:
 
 2. Install dependencies:
     ```bash
-    npm install
+    yarn install
     ```
 
 3. Start the application in development mode:
     ```bash
-    npm run dev
+    yarn dev
     ```
 
 4. Start json-server:
